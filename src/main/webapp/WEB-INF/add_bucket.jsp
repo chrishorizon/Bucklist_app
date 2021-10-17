@@ -13,7 +13,7 @@
 <html>
 <head>
 	<meta charset="ISO-8859-1">
-	<title>Home page</title>
+	<title>Create Bucketlist Page</title>
 	<!-- for CSS styling-->
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<script type="text/javascript" src="js/app.js"></script>
@@ -26,33 +26,28 @@
 <body>
 	<div class="container mt-3">
 		<div class="d-flex align-items-center justify-content-between">
-			<h5><c:out value="${loggedInUser.userName}"/>'s</h5>
-			<a href="/logout">Logout</a>
+			<h1>Create Bucket List Item</h1>
+			<a href="/home">Dashboard</a>
 		</div>
 		<div>
-			<h1 class="mt-4 text-center">Bucket List</h1>
-			<a href="/bucketlist/new">Add Item</a>
-			<br>
-			<div>
-				<table class="table table-bordered text-center">
-					<thead>
-						<tr>
-							<th>Things to do</th>
-							<th>Action</th>
-						</tr>
-					</thead>
-					<tbody>
-						<c:forEach var="c" items="${loggedInUser.buckets}">
-							<tr>
-								<td><a href="/classes/${c.id}"><c:out value="${c.name}" /></a>
-								<td><a href="/classes/${c.id}/edit" class="ms-2 btn btn-light">Edit</a></td>
-							</tr>
-						</c:forEach>
-					</tbody>
-				</table>
-			</div>
+			<form:form action="/bucketlist/new" method="post" modelAttribute="bucket" class="mt-3">
+				<p>
+					<form:label path="name">Title:</form:label>
+					<form:errors path="name" class="text-danger"/>
+					<form:input path="name" class="form-control"/>
+				</p>
+				<p>
+					<form:label path="description">Description:</form:label>
+					<form:errors path="description" class="text-danger"/>
+					<form:textarea path="description" class="form-control"/>
+				</p>
+				<div class="d-flex justify-content-end">
+					<a href="/home" class="btn btn-primary">Cancel</a>
+					<input type="submit" value="Submit" class="ms-5 btn btn-primary"/>
+				</div>
+			</form:form>
 		</div>
-
+	
 	</div>
 </body>
 </html>

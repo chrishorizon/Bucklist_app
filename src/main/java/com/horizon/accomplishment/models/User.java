@@ -1,12 +1,16 @@
 package com.horizon.accomplishment.models;
 
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
@@ -45,8 +49,8 @@ public class User {
     private String confirm;
     
     // ==== Relationships =============================================
-    //@OneToMany(mappedBy="creator", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    //private List<Course> courses;
+    @OneToMany(mappedBy="creator", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Bucket> buckets;
 
 	// ==== Data Creation Trackers ======
     @Column(updatable=false)
@@ -117,6 +121,14 @@ public class User {
 		this.confirm = confirm;
 	}
 
+	public List<Bucket> getBuckets() {
+		return buckets;
+	}
+
+	public void setBuckets(List<Bucket> buckets) {
+		this.buckets = buckets;
+	}
+
 	public Date getCreatedAt() {
 		return createdAt;
 	}
@@ -132,5 +144,5 @@ public class User {
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
-
+    
 }

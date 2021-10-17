@@ -1,8 +1,11 @@
 package com.horizon.accomplishment.controllers;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -10,8 +13,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.horizon.accomplishment.models.Bucket;
 import com.horizon.accomplishment.models.LoginUser;
 import com.horizon.accomplishment.models.User;
+import com.horizon.accomplishment.services.BucketService;
 import com.horizon.accomplishment.services.UserService;
 
 @Controller
@@ -22,8 +27,8 @@ public class HomeController {
 		this.userServ = u;
 	}
 	
-	//@Autowired
-	//private CourseService courseServ;
+	@Autowired
+	private BucketService bucketServ;
 	
 	
 	// ==== Display =================
@@ -49,8 +54,8 @@ public class HomeController {
 		User user = userServ.getOne(id);
 		model.addAttribute("loggedInUser", user);
 		
-		//List<Course> allCourses = courseServ.allCourses();
-		//model.addAttribute("allCourses", allCourses);
+		List<Bucket> allBucket= bucketServ.allBuckets();
+		model.addAttribute("allBuckets", allBucket);
 		
 		return "dashboard.jsp";
 	}
