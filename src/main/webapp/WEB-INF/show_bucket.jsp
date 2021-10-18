@@ -13,7 +13,7 @@
 <html>
 <head>
 	<meta charset="ISO-8859-1">
-	<title>Home page</title>
+	<title>Show bucketlist page</title>
 	<!-- for CSS styling-->
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<script type="text/javascript" src="js/app.js"></script>
@@ -25,38 +25,14 @@
 </head>
 <body>
 	<div class="container mt-3">
-		<div class="d-flex align-items-center justify-content-between">
-			<h5><c:out value="${loggedInUser.userName}"/>'s</h5>
-			<a href="/logout">Logout</a>
+		<div class="d-flex align-items-center justify-content-between mb-5">
+			<h1><c:out value="${bucket.name}"/></h1>
+			<a href="/home">Dashboard</a>
 		</div>
 		<div>
-			<h1 class="mt-4 text-center">Bucket List</h1>
-			<a href="/bucketlist/new">Add Item</a>
-			<br>
-			<div>
-				<table class="table table-bordered text-center">
-					<thead>
-						<tr>
-							<th>Things to do</th>
-							<th>Action</th>
-						</tr>
-					</thead>
-					<tbody>
-						<c:forEach var="c" items="${loggedInUser.buckets}">
-							<tr>
-								<td><a href="/bucketlist/${c.id}"><c:out value="${c.name}" /></a>
-								<td class="d-flex"><a href="/bucketlist/${c.id}/edit" class="ms-2 btn btn-light">Edit</a>
-									<form action="/bucketlist/${bucket.id}/delete" method="post">
-											<input type="hidden" name="_method" value="delete" />
-											<input type="submit" value="Delete" class="btn btn-danger" />
-									</form></td>
-							</tr>
-						</c:forEach>
-					</tbody>
-				</table>
-			</div>
+			<span class="border-top border-4"><c:out value="${bucket.description}"/></span>
 		</div>
-
 	</div>
+
 </body>
 </html>
