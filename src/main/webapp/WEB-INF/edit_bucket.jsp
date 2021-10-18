@@ -13,7 +13,7 @@
 <html>
 <head>
 	<meta charset="ISO-8859-1">
-	<title>Home page</title>
+	<title>Edit Page</title>
 	<!-- for CSS styling-->
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<script type="text/javascript" src="js/app.js"></script>
@@ -26,31 +26,31 @@
 <body>
 	<div class="container mt-3">
 		<div class="d-flex align-items-center justify-content-between">
-			<h5><c:out value="${loggedInUser.userName}"/>'s</h5>
-			<a href="/logout">Logout</a>
+			<h1><c:out value="${bucket.name }"/></h1>
+			<a href="/home">Dashboard</a>
 		</div>
 		<div>
-			<h1 class="mt-4 text-center">Bucket List</h1>
-			<a href="/bucketlist/new">Add Item</a>
-			<br>
-			<div>
-				<table class="table table-bordered text-center">
-					<thead>
-						<tr>
-							<th>Things to do</th>
-							<th>Action</th>
-						</tr>
-					</thead>
-					<tbody>
-						<c:forEach var="c" items="${loggedInUser.buckets}">
-							<tr>
-								<td><a href="/bucketlist/${c.id}"><c:out value="${c.name}" /></a>
-								<td><a href="/bucketlist/${c.id}/edit" class="ms-2 btn btn-light">Edit</a></td>
-							</tr>
-						</c:forEach>
-					</tbody>
-				</table>
-			</div>
+			<form:form action="/bucketlist/${bucket.id}/edit" method="post" modelAttribute="bucket">
+				<input type="hidden" name="_method" value="put">
+				<p>
+					<form:label path="name">Title:</form:label>
+					<form:errors path="name" class="text-danger" />
+					<form:input path="name" class="form-control" />
+				</p>
+				<p>
+					<form:label path="description">Description:</form:label>
+					<form:errors path="description" class="text-danger" />
+					<form:textarea path="description" class="form-control" />
+				</p>
+				<div class="d-flex">
+					<a href="/home" class="me-3 btn btn-primary">Cancel</a>
+					<input type="submit" value="Update" class="btn btn-primary" />
+				</div>
+			</form:form>
+			<form action="/bucketlist/${bucket.id}/delete" method="post" class="d-flex justify-content-end">
+				<input type="hidden" name="_method" value="delete" />
+				<input type="submit" value="Delete" class="btn btn-danger" />
+			</form>
 		</div>
 
 	</div>
