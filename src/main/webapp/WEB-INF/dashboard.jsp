@@ -45,12 +45,12 @@
 						<c:forEach var="c" items="${loggedInUser.buckets}">
 							<tr>
 								<td><input type="checkbox">
-								<a href="/bucketlist/${c.id}"><c:out value="${c.name}"/></a>
+								<a href="/bucketlist/${c.id}" class="edit-btn"><c:out value="${c.name}"/></a>
 								<td class="action-btn">
-								<a href="/bucketlist/${c.id}/edit" class="edit-btn">Edit</a>
+								<a href="/bucketlist/${c.id}/edit" class="custom-btn btn-11">Edit</a>
 									<form action="/bucketlist/${c.id}/delete" method="post">
 											<input type="hidden" name="_method" value="delete" />
-											<input type="submit" value="Delete" class="btn btn-danger" />
+											<input type="submit" value="Delete" class="custom-btn btn-1" />
 									</form></td>
 							</tr>
 						</c:forEach>
