@@ -26,19 +26,19 @@
 <body>
 	<div class="container">
 		<div class="top-nav">
-			<h5 class="username-nav"><c:out value="${loggedInUser.userName}"/>'s</h5>
+			<h3 class="username-nav"><c:out value="${loggedInUser.userName}"/>'s</h3>
 			<a href="/logout">Logout</a>
 		</div>
 		<div>
 			<h1 class="bucket-nav">Bucket List</h1>
-			<a style="float:right" href="/bucketlist/new">Add Item</a>
+			<a style="float:right" href="/bucketlist/new">+ Add Item</a>
 			<br>
 			<div>
-				<table class="">
+				<table>
 					<thead>
 						<tr>
-							<th>Things to do</th>
-							<th>Action</th>
+							<th></th>
+							<th></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -46,8 +46,8 @@
 							<tr>
 								<td><input type="checkbox">
 								<a href="/bucketlist/${c.id}"><c:out value="${c.name}"/></a>
-								<td class="d-flex">
-								<a href="/bucketlist/${c.id}/edit" class="ms-2 btn btn-light">Edit</a>
+								<td class="action-btn">
+								<a href="/bucketlist/${c.id}/edit" class="edit-btn">Edit</a>
 									<form action="/bucketlist/${c.id}/delete" method="post">
 											<input type="hidden" name="_method" value="delete" />
 											<input type="submit" value="Delete" class="btn btn-danger" />

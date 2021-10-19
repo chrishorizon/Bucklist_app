@@ -24,7 +24,7 @@ text-decoration: line-through;
 }
 
 .username-nav {
-	margin-left: 28vw;
+	margin-left: 27vw;
 }
 
 .bucket-nav {
@@ -32,3 +32,33 @@ text-decoration: line-through;
 	font-size: 5rem;
 }
 
+.action-btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-right: 20px;
+}
+
+.edit-btn {
+	margin-right: 20px;
+	background-color: #a704ca;
+	box-shadow: 2px 2px 2px 1px red;
+	color: white;
+	padding: 7px 25px;
+	text-align: center;
+	font-size: 16px;
+}
+
+table {
+	width: 100%;
+	text-align: center;
+}
+
+th, td {
+  border-bottom: 1px solid #ddd;
+  height: 40px;
+}
+
+td {
+	width: 100%;
+}
