@@ -17,24 +17,24 @@
 	<!-- for CSS styling-->
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<script type="text/javascript" src="js/app.js"></script>
-	<!-- for Bootstrap CSS -->
-	<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
+	<!-- for Bootstrap CSS 
+	<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" /> -->
 	<!-- For any Bootstrap that uses JS or jQuery-->
 	<script src="/webjars/jquery/jquery.min.js"></script>
 	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<div class="container mt-3">
-		<div class="d-flex align-items-center justify-content-between">
-			<h5><c:out value="${loggedInUser.userName}"/>'s</h5>
+	<div class="container">
+		<div class="top-nav">
+			<h5 class="username-nav"><c:out value="${loggedInUser.userName}"/>'s</h5>
 			<a href="/logout">Logout</a>
 		</div>
 		<div>
-			<h1 class="mt-4 text-center">Bucket List</h1>
-			<a href="/bucketlist/new">Add Item</a>
+			<h1 class="bucket-nav">Bucket List</h1>
+			<a style="float:right" href="/bucketlist/new">Add Item</a>
 			<br>
 			<div>
-				<table class="table table-bordered text-center">
+				<table class="">
 					<thead>
 						<tr>
 							<th>Things to do</th>
@@ -44,9 +44,11 @@
 					<tbody>
 						<c:forEach var="c" items="${loggedInUser.buckets}">
 							<tr>
-								<td><a href="/bucketlist/${c.id}"><c:out value="${c.name}" /></a>
-								<td class="d-flex"><a href="/bucketlist/${c.id}/edit" class="ms-2 btn btn-light">Edit</a>
-									<form action="/bucketlist/${bucket.id}/delete" method="post">
+								<td><input type="checkbox">
+								<a href="/bucketlist/${c.id}"><c:out value="${c.name}"/></a>
+								<td class="d-flex">
+								<a href="/bucketlist/${c.id}/edit" class="ms-2 btn btn-light">Edit</a>
+									<form action="/bucketlist/${c.id}/delete" method="post">
 											<input type="hidden" name="_method" value="delete" />
 											<input type="submit" value="Delete" class="btn btn-danger" />
 									</form></td>
