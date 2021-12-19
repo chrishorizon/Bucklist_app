@@ -14,6 +14,18 @@ tbody tr input[type=checkbox]:checked ~ a {
 	text-decoration: line-through;
 }
 
+.bg-login {
+	background-image: url("../yellow.jpeg"); 
+	height: 100vh;
+	width: 100vw;
+}
+
+.bg-dash {
+	background-image: url("../paper.jpg");
+	height: 100vh;
+	width: 100vw;
+}
+
 .container {
 	width: 60vw;
 	margin: auto;
@@ -45,6 +57,7 @@ tbody tr input[type=checkbox]:checked ~ a {
 
 .edit-btn {
 	font-size: 1.5rem;
+	color: black;
 }
 
 .custom-btn {
@@ -103,7 +116,6 @@ background: linear-gradient(0deg, rgba(96,9,240,1) 0%, rgba(129,5,240,1) 100%);
 	width: 30px;
 	height: 100%;
 	background-color: #fff;
-	animation: shiny-btn1 3s ease-in-out infinite;
 }
 
 .btn-11:hover{

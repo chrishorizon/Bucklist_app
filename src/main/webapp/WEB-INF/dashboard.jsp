@@ -24,42 +24,43 @@
 	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<div class="container">
-		<div class="top-nav">
-			<h3 class="username-nav"><c:out value="${loggedInUser.userName}"/>'s</h3>
-			<a href="/logout">Logout</a>
-		</div>
-		<div>
-			<h1 class="bucket-nav">Bucket List</h1>
-			<a style="float:right" href="/bucketlist/new">+ Add Item</a>
-			<br>
+	<div class="bg-dash">
+		<div class="container">
+			<div class="top-nav">
+				<h3 class="username-nav"><c:out value="${loggedInUser.userName}"/>'s</h3>
+				<a href="/logout">Logout</a>
+			</div>
 			<div>
-				<table>
-					<thead>
-						<tr>
-							<th></th>
-							<th></th>
-						</tr>
-					</thead>
-					<tbody>
-						<c:forEach var="c" items="${loggedInUser.buckets}">
+				<h1 class="bucket-nav">Bucket List</h1>
+				<a style="float:right" href="/bucketlist/new">+ Add Item</a>
+				<br>
+				<div>
+					<table>
+						<thead>
 							<tr>
-								<td>
-									<a href="/bucketlist/${c.id}" class="edit-btn"><c:out value="${c.name}"/></a>
-									<td class="action-btn">
-									<a href="/bucketlist/${c.id}/edit" class="custom-btn btn-11">Edit</a>
-									<form action="/bucketlist/${c.id}/delete" method="post">
-											<input type="hidden" name="_method" value="delete" />
-											<input type="submit" value="Delete" class="custom-btn btn-1" />
-									</form>
-								</td>
+								<th></th>
+								<th></th>
 							</tr>
-						</c:forEach>
-					</tbody>
-				</table>
+						</thead>
+						<tbody>
+							<c:forEach var="c" items="${loggedInUser.buckets}">
+								<tr>
+									<td>
+										<a href="/bucketlist/${c.id}" class="edit-btn"><c:out value="${c.name}"/></a>
+										<td class="action-btn">
+										<a href="/bucketlist/${c.id}/edit" class="custom-btn btn-11">Edit</a>
+										<form action="/bucketlist/${c.id}/delete" method="post">
+												<input type="hidden" name="_method" value="delete" />
+												<input type="submit" value="Delete" class="custom-btn btn-1" />
+										</form>
+									</td>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
+				</div>
 			</div>
 		</div>
-
 	</div>
 </body>
 </html>
