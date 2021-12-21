@@ -14,6 +14,12 @@ tbody tr input[type=checkbox]:checked ~ a {
 	text-decoration: line-through;
 }
 
+.title-blist {
+	font-size: 5rem;
+	text-shadow: 3px 3px 5px #B2FFFF;
+	color: #3F00FF;
+}
+
 .bg-login {
 	background-image: url("../yellow.jpeg"); 
 	height: 100vh;
@@ -40,11 +46,12 @@ tbody tr input[type=checkbox]:checked ~ a {
 }
 
 .username-nav {
-	margin-left: 27vw;
+	padding-left: 24vw;
 }
 
 .bucket-nav {
 	text-align: center;
+	padding-right: 10rem;
 	font-size: 5rem;
 	margin-top: 10px;
 }

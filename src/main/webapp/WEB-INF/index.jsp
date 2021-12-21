@@ -25,7 +25,7 @@
 </head>
 <body>
 	<div class="bg-login">
-		<h1 class="text-center text-primary pt-3">Bucketlist</h1>
+		<h1 class="title-blist text-center pt-3">Bucketlist</h1>
 			<div class="container d-flex justify-content-evenly mt-3">
 			<div>
 				<h1>Register</h1>
